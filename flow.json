@@ -1,0 +1,221 @@
+[
+    {
+        "id": "c3295be0.3b9818",
+        "type": "mosca in",
+        "z": "b9c386da.e1d858",
+        "mqtt_port": 1883,
+        "mqtt_ws_port": 8080,
+        "name": "",
+        "username": "",
+        "password": "",
+        "dburl": "",
+        "x": 270,
+        "y": 200,
+        "wires": [
+            [
+                "91957598.4efe18"
+            ]
+        ]
+    },
+    {
+        "id": "91957598.4efe18",
+        "type": "debug",
+        "z": "b9c386da.e1d858",
+        "name": "",
+        "active": false,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "false",
+        "x": 470,
+        "y": 200,
+        "wires": []
+    },
+    {
+        "id": "dc39488e.f17108",
+        "type": "inject",
+        "z": "b9c386da.e1d858",
+        "name": "背景 赤・文字 黒・Node-RED",
+        "topic": "",
+        "payload": "{\"txt_r\":0,\"txt_g\":0,\"txt_b\":0,\"bg_r\":255,\"bg_g\":0,\"bg_b\":0,\"message\":\"Node-RED\",\"flag\":1}",
+        "payloadType": "json",
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "x": 320,
+        "y": 380,
+        "wires": [
+            [
+                "c6957618.a98308"
+            ]
+        ]
+    },
+    {
+        "id": "c6957618.a98308",
+        "type": "mqtt out",
+        "z": "b9c386da.e1d858",
+        "name": "",
+        "topic": "sub/M5Stack3",
+        "qos": "",
+        "retain": "",
+        "broker": "f732bc1c.35538",
+        "x": 700,
+        "y": 400,
+        "wires": []
+    },
+    {
+        "id": "bcb118c2.290918",
+        "type": "inject",
+        "z": "b9c386da.e1d858",
+        "name": "黒 OFF",
+        "topic": "",
+        "payload": "{\"txt_r\":0,\"txt_g\":0,\"txt_b\":0,\"bg_r\":0,\"bg_g\":0,\"bg_b\":0,\"message\":\"----\",\"flag\":0}",
+        "payloadType": "json",
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "x": 490,
+        "y": 560,
+        "wires": [
+            [
+                "c6957618.a98308"
+            ]
+        ]
+    },
+    {
+        "id": "5364e7a1.c4b128",
+        "type": "mqtt in",
+        "z": "b9c386da.e1d858",
+        "name": "",
+        "topic": "pub/M5Stack3",
+        "qos": "2",
+        "broker": "f732bc1c.35538",
+        "x": 250,
+        "y": 280,
+        "wires": [
+            [
+                "2f81b75.94da648"
+            ]
+        ]
+    },
+    {
+        "id": "136fdb16.8b1405",
+        "type": "debug",
+        "z": "b9c386da.e1d858",
+        "name": "",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "false",
+        "x": 570,
+        "y": 280,
+        "wires": []
+    },
+    {
+        "id": "2f81b75.94da648",
+        "type": "json",
+        "z": "b9c386da.e1d858",
+        "name": "",
+        "property": "payload",
+        "action": "",
+        "pretty": false,
+        "x": 410,
+        "y": 280,
+        "wires": [
+            [
+                "136fdb16.8b1405"
+            ]
+        ]
+    },
+    {
+        "id": "b7fdf1ae.ecaf2",
+        "type": "comment",
+        "z": "b9c386da.e1d858",
+        "name": "MQTTブローカー",
+        "info": "",
+        "x": 260,
+        "y": 160,
+        "wires": []
+    },
+    {
+        "id": "89a41f7d.af789",
+        "type": "comment",
+        "z": "b9c386da.e1d858",
+        "name": "M5Stack Aボタンクリック受信",
+        "info": "",
+        "x": 310,
+        "y": 240,
+        "wires": []
+    },
+    {
+        "id": "f94073c.d78cb9",
+        "type": "comment",
+        "z": "b9c386da.e1d858",
+        "name": "M5Stack ディスプレイ操作",
+        "info": "",
+        "x": 290,
+        "y": 340,
+        "wires": []
+    },
+    {
+        "id": "a84e71de.9f7d7",
+        "type": "inject",
+        "z": "b9c386da.e1d858",
+        "name": "背景 青・文字 水色・Sky Blue :)",
+        "topic": "",
+        "payload": "{\"txt_r\":255,\"txt_g\":255,\"txt_b\":255,\"bg_r\":0,\"bg_g\":255,\"bg_b\":255,\"message\":\"SkyBlue:)\",\"flag\":1}",
+        "payloadType": "json",
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "x": 330,
+        "y": 420,
+        "wires": [
+            [
+                "c6957618.a98308"
+            ]
+        ]
+    },
+    {
+        "id": "fdac5f65.8d3c5",
+        "type": "inject",
+        "z": "b9c386da.e1d858",
+        "name": "背景 黄色・文字 灰・Banana",
+        "topic": "",
+        "payload": "{\"txt_r\":200,\"txt_g\":200,\"txt_b\":200,\"bg_r\":255,\"bg_g\":255,\"bg_b\":0,\"message\":\"Banana\",\"flag\":1}",
+        "payloadType": "json",
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "x": 320,
+        "y": 460,
+        "wires": [
+            [
+                "c6957618.a98308"
+            ]
+        ]
+    },
+    {
+        "id": "f732bc1c.35538",
+        "type": "mqtt-broker",
+        "z": "",
+        "broker": "127.0.0.1",
+        "port": "1883",
+        "clientid": "",
+        "usetls": false,
+        "compatmode": true,
+        "keepalive": "60",
+        "cleansession": true,
+        "willTopic": "",
+        "willQos": "0",
+        "willPayload": "",
+        "birthTopic": "",
+        "birthQos": "0",
+        "birthPayload": ""
+    }
+]
